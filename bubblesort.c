@@ -6,7 +6,7 @@
 int main()
 {
 	int  i,j,n;
-	float start,end;
+	clock_t t1,t2;
 	
 	printf("Enter the size of an array:\n");
 	scanf("%d",&n);
@@ -21,7 +21,7 @@ int main()
     }
     printf("\n");
 		
-	start = clock();
+	t1 = clock();
 	for(i=0;i<n-1;i++)
 	{
 		for(j=0;j<n-i-1;j++)
@@ -34,14 +34,15 @@ int main()
 			}
 		}
 	}
-	end =clock();
-	float cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+	t2 =clock();
+	float sec = ((float) (t2 - t1)) / CLOCKS_PER_SEC;
 	
 	printf("Elements in Sorted Order\n");
 	for(i=0;i<n;i++)
 		printf("%d ",arr[i]);
 		
-	printf("Time taken for Bubble Sort: %f seconds\n", cpu_time_used);
+	printf("Time taken for Bubble Sort: %f seconds\n", sec);
 
 }
+
 
